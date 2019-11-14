@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Artifacts
+  version="1.0">
+  <Artifact 
+    type="SqliteArtifact"
+    name="Microsoft Teams - Contacts"
+    version="1.0"
+	platform="Android">	
+    <Source type="FileName">SkypeTeams.db</Source>
+  <Query>SELECT User.[displayName], 
+	User.[email], 
+	User.[givenName], 
+	User.[surname], 
+	User.[mobile], 
+	User.[telephoneNumber]
+	FROM user; </Query>
+    <Fragments>
+      <Fragment 
+        source="displayName"
+        alias="Display Name"
+        datatype="string"
+        category="PersonIdentifier"/>
+      <Fragment 
+        source="email"
+		alias="E-Mail"
+        datatype="string"
+        category="PersonIdentifier"/>
+      <Fragment 
+        source="givenName"
+        alias="Given Name"
+        datatype="String"
+        category="PersonIdentifier"/>
+      <Fragment 
+        source="surname"
+        alias="Surname"
+        datatype="String"
+        category="PersonIdentifier"/>
+      <Fragment 
+        source="mobile"
+        alias="Cell Phone Number"
+        datatype="string"
+        category="PersonIdentifier"/>
+      <Fragment 
+        source="telephoneNumber"
+        alias="Phone Number"
+        datatype="String"
+        category="PersonIdentifier"/>    
+    </Fragments>
+  </Artifact>
+</Artifacts>

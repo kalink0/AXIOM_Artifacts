@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Artifacts
+  version="1.0">
+  <Artifact 
+    type="SqliteArtifact"
+    name="Microsoft Teams - Messages"
+    version="1.0"
+	platform="Android">	
+    <Source type="FileName">SkypeTeams.db</Source>
+  <Query>SELECT	Message.[arrivalTime],
+	Message.[composeTime],
+	Message.[conversationId],
+	Message.[messageType],
+	Message.[content],
+	User.[displayName]
+	FROM Message
+	INNER JOIN User 
+	ON Message.[From] = User.[mri] </Query>
+    <Fragments>
+      <Fragment 
+        source="arrivalTime"
+        alias="Time Received"
+        datatype="DateTime"
+		dateformat="UNIX Time (ms)"
+        category="DateTime"/>
+      <Fragment 
+        source="composeTime"
+		alias="Time Composed"
+        datatype="DateTime"
+		dateformat="UNIX Time (ms)"
+        category="DateTime"/>
+      <Fragment 
+        source="conversationId"
+        alias="Conversation ID"
+        datatype="String"
+        category="None"/>
+      <Fragment 
+        source="messageType"
+        alias="Message Type"
+        datatype="String"
+        category="None"/>
+      <Fragment 
+        source="content"
+        alias="Message Content"
+        datatype="Attachment"
+        category="None"/>
+      <Fragment 
+        source="displayName"
+        alias="From"
+        datatype="String"
+        category="PersonIdentifier"/>    
+    </Fragments>
+  </Artifact>
+</Artifacts>
